@@ -1,98 +1,98 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Living 90's Trivial</title>
+    <title>Trivial Promocional: Fiesta Living 90's</title>
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts: Press Start 2P -->
+    <!-- Google Fonts: Press Start 2P (para títulos) y Poppins (para texto) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Press+Start+2P&display=swap" rel="stylesheet">
 
     <style>
-        /* Estilos personalizados para la estética retro */
+        :root {
+            --primary-accent: #ff00ff; /* Magenta vibrante */
+            --secondary-accent: #00ffff; /* Cian eléctrico */
+            --background-dark: #1a1a1a;
+            --card-background: #2c2c2c;
+            --text-light: #f0f0f0;
+            --text-dark: #1a1a1a;
+        }
+
         body {
-            font-family: 'Press Start 2P', cursive;
-            background-color: #0d0d0d;
-            color: #ffffff;
-            overflow: hidden; /* Evita el scroll por el efecto VHS */
-            text-shadow: 2px 2px 0px #ff00ff, -2px -2px 0px #00ffff;
-        }
-
-        .text-neon-pink {
-            text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 15px #ff00ff;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-dark);
+            color: var(--text-light);
+            overflow: hidden;
+            font-size: 1.1rem;
         }
         
-        .text-neon-cyan {
-             text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 15px #00ffff;
-        }
-        
-        .pixel-border {
-            border: 4px solid;
-            border-image-slice: 2;
-            border-image-width: 4px;
-            border-image-repeat: stretch;
-            border-image-source: url('data:image/svg+xml;utf8,<svg width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0H2V2H0V0ZM2 2H4V4H2V2ZM4 4H6V6H4V4Z" fill="%2300ffff" /></svg>');
-            box-shadow: 0 0 10px #00ffff, inset 0 0 10px #00ffff80;
-        }
-
-        .btn-90s {
-            transition: all 0.2s ease-in-out;
-            text-shadow: 1px 1px 0px #ff00ff, -1px -1px 0px #00ffff;
-        }
-        
-        .btn-90s:hover {
-            transform: scale(1.05) rotate(-2deg);
-            background-color: #ff00ff;
-            color: #0d0d0d;
-            text-shadow: 1px 1px 0px #00ffff;
-            box-shadow: 0 0 15px #ff00ff;
-        }
-
-        /* Efecto VHS animado */
-        body::before {
-            content: "";
-            position: absolute;
+        #background-pattern {
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
-                linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
-                linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-            z-index: 2;
-            background-size: 100% 3px, 3px 100%;
-            pointer-events: none;
-            animation: vhs-flicker 0.15s infinite;
-        }
-
-        body::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(13, 13, 13, 0.5); /* Filtro oscuro */
             z-index: -1;
-            opacity: 0.8;
-            animation: vhs-scanlines 8s linear infinite;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
         }
 
-        @keyframes vhs-flicker {
-            0% { opacity: 0.9; }
-            50% { opacity: 0.85; }
-            100% { opacity: 0.92; }
+        .title-font {
+            font-family: 'Press Start 2P', cursive;
         }
 
-        @keyframes vhs-scanlines {
-            from { background-position-y: 0; }
-            to { background-position-y: 100%; }
+        .text-glow {
+            color: var(--primary-accent);
+            text-shadow: 0 0 8px var(--primary-accent), 0 0 12px var(--primary-accent);
+        }
+        
+        .text-secondary-glow {
+             color: var(--secondary-accent);
+             text-shadow: 0 0 8px var(--secondary-accent);
+        }
+        
+        .card {
+            border: 2px solid var(--primary-accent);
+            border-radius: 1rem;
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.3), inset 0 0 15px rgba(255, 0, 255, 0.2);
+            background-color: var(--card-background);
+            backdrop-filter: blur(5px);
+        }
+
+        .btn-promo {
+            border-radius: 0.5rem;
+            border: 2px solid transparent;
+            background-color: var(--primary-accent);
+            color: var(--text-dark);
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+        
+        .btn-promo:hover:not(:disabled) {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 0, 255, 0.4);
+        }
+        .btn-promo:disabled {
+            cursor: not-allowed;
+            background-color: #555;
+            opacity: 0.6;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border-color: var(--secondary-accent);
+            color: var(--secondary-accent);
+        }
+         .btn-secondary:hover:not(:disabled) {
+            background-color: var(--secondary-accent);
+            color: var(--text-dark);
+            box-shadow: 0 10px 20px rgba(0, 255, 255, 0.3);
         }
 
         /* Animaciones de transición */
@@ -101,35 +101,60 @@
         }
         .screen.hidden {
             opacity: 0;
-            transform: scale(0.95);
+            transform: translateY(20px);
             pointer-events: none;
             position: absolute;
+        }
+
+        /* Animaciones para respuestas */
+        .correct-answer {
+            animation: correct-pulse 0.8s ease;
+            background-color: var(--secondary-accent);
+            border-color: var(--secondary-accent);
+            color: var(--text-dark);
+        }
+        .incorrect-answer {
+            animation: incorrect-shake 0.6s ease;
+            background-color: #8B0000; /* Rojo oscuro */
+            border-color: #8B0000;
+            color: var(--text-light);
+        }
+        @keyframes correct-pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        @keyframes incorrect-shake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-6px); }
+            40%, 80% { transform: translateX(6px); }
         }
     </style>
 </head>
 <body class="flex items-center justify-center min-h-screen p-4">
+
+    <div id="background-pattern"></div>
 
     <!-- Contenedor principal del juego -->
     <main id="game-container" class="w-full max-w-2xl mx-auto text-center">
 
         <!-- Pantalla de Inicio -->
         <div id="start-screen" class="screen space-y-8">
-            <h1 class="text-3xl md:text-5xl leading-tight">
-                <span class="block text-neon-cyan">LIVING 90's</span>
-                <span class="block text-neon-pink">TRIVIAL</span>
+            <h1 class="text-4xl md:text-5xl leading-tight title-font text-glow">
+                LIVING 90's<br>TRIVIAL
             </h1>
-            <p class="text-lg">¡La fiesta necesita tu sabiduría noventera!</p>
-            <button id="play-button" class="btn-90s pixel-border bg-gray-800 text-white py-4 px-8 text-2xl animate-pulse">
-                JUGAR
+            <p class="text-lg md:text-xl px-4">Demuestra que eres el alma de la fiesta y prepárate para la noche más noventera. <br><span class="text-secondary-glow font-semibold">¡Te esperamos el viernes 10 de octubre!</span></p>
+            <button id="play-button" class="btn-promo py-4 px-10 text-2xl">
+                ¡EMPEZAR!
             </button>
         </div>
 
         <!-- Pantalla de Preguntas -->
         <div id="quiz-screen" class="screen hidden w-full">
-             <div class="pixel-border bg-black bg-opacity-50 p-6 md:p-8 space-y-6">
-                <div id="question-counter" class="text-lg text-neon-cyan"></div>
-                <h2 id="question-text" class="text-xl md:text-2xl leading-relaxed h-24"></h2>
-                <div id="answers-container" class="grid grid-cols-1 gap-4">
+             <div class="card p-6 md:p-8 space-y-6">
+                <div id="question-counter" class="text-lg text-secondary-glow font-semibold"></div>
+                <h2 id="question-text" class="text-xl md:text-2xl font-semibold min-h-[8rem] flex items-center justify-center"></h2>
+                <div id="answers-container" class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <!-- Las opciones de respuesta se generan aquí -->
                 </div>
             </div>
@@ -137,20 +162,25 @@
 
         <!-- Pantalla de Resultados -->
         <div id="result-screen" class="screen hidden w-full">
-            <div class="pixel-border bg-black bg-opacity-50 p-6 md:p-8 space-y-6">
-                <h2 id="result-title" class="text-3xl text-neon-pink"></h2>
+            <div class="card p-6 md:p-8 space-y-6">
+                <h2 id="result-title" class="text-4xl title-font text-glow"></h2>
+                <p id="score-text" class="text-2xl text-secondary-glow font-bold"></p>
                 <p id="result-message" class="text-lg leading-relaxed"></p>
-                <p id="score-text" class="text-2xl text-neon-cyan"></p>
-                <button id="restart-button" class="btn-90s pixel-border bg-gray-800 text-white py-3 px-6 text-xl">
-                    JUGAR DE NUEVO
-                </button>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+                    <button id="restart-button" class="btn-secondary py-3 px-6 text-lg">
+                        JUGAR OTRA VEZ
+                    </button>
+                    <a href="https://www.meetup.com/es-ES/madrid-hacer-nuevos-amigos-meetup-group/events/310847949/?eventOrigin=group_events_list" target="_blank" rel="noopener noreferrer" id="party-button" class="btn-promo py-3 px-6 text-lg no-underline">
+                        ¡MÁS INFO DE LA FIESTA!
+                    </a>
+                </div>
             </div>
         </div>
     </main>
 
     <!-- Control de música -->
-    <button id="mute-button" class="fixed bottom-4 right-4 pixel-border bg-gray-800 p-3 z-10">
-        <svg id="icon-unmuted" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-neon-pink" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <button id="mute-button" class="fixed bottom-4 right-4 bg-card-background border-2 border-secondary-accent rounded-full p-3 z-10 transition-transform hover:scale-110">
+        <svg id="icon-unmuted" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-secondary-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
         </svg>
         <svg id="icon-muted" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -159,10 +189,9 @@
         </svg>
     </button>
     
-    <!-- Música de fondo (8-bit, royalty free) -->
+    <!-- Música de fondo -->
     <audio id="bg-music" loop>
         <source src="https://vgmsite.com/soundtracks/saturday-morning-videogame-ost/jswyqvjw/19.%208-Bit%20Surf%20Rock.mp3" type="audio/mpeg">
-        Tu navegador no soporta el elemento de audio.
     </audio>
 
     <script>
@@ -171,18 +200,14 @@
             const startScreen = document.getElementById('start-screen');
             const quizScreen = document.getElementById('quiz-screen');
             const resultScreen = document.getElementById('result-screen');
-
             const playButton = document.getElementById('play-button');
             const restartButton = document.getElementById('restart-button');
-            
             const questionCounter = document.getElementById('question-counter');
             const questionText = document.getElementById('question-text');
             const answersContainer = document.getElementById('answers-container');
-
             const resultTitle = document.getElementById('result-title');
             const resultMessage = document.getElementById('result-message');
             const scoreText = document.getElementById('score-text');
-            
             const bgMusic = document.getElementById('bg-music');
             const muteButton = document.getElementById('mute-button');
             const iconUnmuted = document.getElementById('icon-unmuted');
@@ -192,104 +217,79 @@
             const questions = [
                 {
                     question: "¿Qué videoconsola portátil de Nintendo dominó por completo la década de los 90?",
-                    options: ["Game Gear", "Atari Lynx", "Game Boy"],
+                    options: ["Game Gear", "Atari Lynx", "Game Boy", "Neo Geo Pocket"],
                     correctAnswer: 2
                 },
                 {
                     question: "En la serie 'El Príncipe de Bel Air', ¿dónde vivía Will antes de mudarse con sus tíos?",
-                    options: ["Brooklyn", "Filadelfia", "Compton"],
+                    options: ["Brooklyn", "Filadelfia", "Compton", "El Bronx"],
                     correctAnswer: 1
                 },
                 {
-                    question: "¿Qué grupo de pop británico cantaba sobre que 'la amistad nunca termina' en su éxito 'Wannabe'?",
-                    options: ["Spice Girls", "All Saints", "Take That"],
+                    question: "¿Qué grupo de pop británico cantaba 'Wannabe' sin parar en todas las radios?",
+                    options: ["Spice Girls", "All Saints", "Take That", "B*Witched"],
                     correctAnswer: 0
                 },
                 {
                     question: "¿Cómo se llamaba el dispositivo de Sony que te permitía escuchar música en cassettes donde quisieras?",
-                    options: ["Discman", "Walkman", "MP3 Player"],
+                    options: ["Discman", "Walkman", "MP3 Player", "MiniDisc"],
                     correctAnswer: 1
                 },
                 {
-                    question: "El objetivo del juego 'Tetris' es encajar piezas formadas por...",
-                    options: ["Triángulos", "Círculos", "4 cuadrados"],
-                    correctAnswer: 2
+                    question: "Para ganar en el 'Comecocos' (Pac-Man), tenías que evitar a unos fantasmas muy coloridos. ¿Recuerdas sus nombres?",
+                    options: ["Inky, Pinky, Blinky y Sue", "Inky, Pinky, Blinky y Clyde", "Flaky, Spiky, Creepy y Clyde", "Inky, Winky, Blinky y Bob"],
+                    correctAnswer: 1
                 }
             ];
 
             let currentQuestionIndex = 0;
             let score = 0;
-            let isMuted = true; // Empieza muteado hasta que el usuario interactúe
-
-            // --- LÓGICA DEL JUEGO ---
+            let isMuted = true;
 
             function startGame() {
                 currentQuestionIndex = 0;
                 score = 0;
-                
                 startScreen.classList.add('hidden');
                 resultScreen.classList.add('hidden');
                 quizScreen.classList.remove('hidden');
-
                 if (!isMuted) {
                     bgMusic.play().catch(e => console.log("La reproducción automática fue bloqueada."));
                 }
-                
                 showQuestion();
             }
 
             function showQuestion() {
-                // Limpia animaciones de entrada
-                quizScreen.style.transform = 'translateX(50px)';
-                quizScreen.style.opacity = '0';
-                
-                setTimeout(() => {
-                    const currentQuestion = questions[currentQuestionIndex];
-                    questionCounter.textContent = `PREGUNTA ${currentQuestionIndex + 1} / ${questions.length}`;
-                    questionText.textContent = currentQuestion.question;
+                const currentQuestion = questions[currentQuestionIndex];
+                questionCounter.textContent = `PREGUNTA ${currentQuestionIndex + 1} / ${questions.length}`;
+                questionText.textContent = currentQuestion.question;
+                answersContainer.innerHTML = '';
 
-                    answersContainer.innerHTML = ''; // Limpia respuestas anteriores
-
-                    currentQuestion.options.forEach((option, index) => {
-                        const button = document.createElement('button');
-                        button.textContent = option;
-                        button.classList.add('btn-90s', 'pixel-border', 'bg-gray-800', 'text-white', 'p-4', 'w-full', 'text-left', 'text-sm', 'md:text-base');
-                        button.dataset.index = index;
-                        button.addEventListener('click', selectAnswer);
-                        answersContainer.appendChild(button);
-                    });
-
-                    // Aplica animación de entrada
-                    quizScreen.style.transform = 'translateX(0)';
-                    quizScreen.style.opacity = '1';
-                }, 200); // Pequeño delay para la animación
+                currentQuestion.options.forEach((option, index) => {
+                    const button = document.createElement('button');
+                    button.textContent = option;
+                    button.className = 'btn-promo btn-secondary p-4 w-full text-center text-base';
+                    button.dataset.index = index;
+                    button.addEventListener('click', selectAnswer);
+                    answersContainer.appendChild(button);
+                });
             }
 
             function selectAnswer(e) {
                 const selectedButton = e.target;
                 const selectedIndex = parseInt(selectedButton.dataset.index);
                 const correctIndex = questions[currentQuestionIndex].correctAnswer;
-
-                // Deshabilita todos los botones
                 const answerButtons = answersContainer.querySelectorAll('button');
                 answerButtons.forEach(button => button.disabled = true);
 
                 if (selectedIndex === correctIndex) {
                     score++;
-                    selectedButton.style.backgroundColor = '#00ff00';
-                    selectedButton.style.color = '#0d0d0d';
-                    selectedButton.style.textShadow = 'none';
+                    selectedButton.classList.add('correct-answer');
                 } else {
-                    selectedButton.style.backgroundColor = '#ff0000';
-                    selectedButton.style.color = '#0d0d0d';
-                    selectedButton.style.textShadow = 'none';
-                    // Muestra la correcta
-                    answerButtons[correctIndex].style.backgroundColor = '#00ff00';
-                    answerButtons[correctIndex].style.color = '#0d0d0d';
-                    answerButtons[correctIndex].style.textShadow = 'none';
+                    selectedButton.classList.add('incorrect-answer');
+                    answerButtons[correctIndex].classList.add('correct-answer');
                 }
 
-                setTimeout(nextQuestion, 1500); // Espera 1.5s antes de la siguiente pregunta
+                setTimeout(nextQuestion, 1500);
             }
 
             function nextQuestion() {
@@ -304,43 +304,35 @@
             function showResults() {
                 quizScreen.classList.add('hidden');
                 resultScreen.classList.remove('hidden');
+                scoreText.textContent = `Tu Puntuación: ${score} de ${questions.length}`;
 
-                scoreText.textContent = `Acertaste ${score} de ${questions.length}`;
-
-                if (score >= 3) {
-                    resultTitle.textContent = "¡FELICIDADES!";
-                    resultMessage.textContent = "🎉 ¡Estás listo para la fiesta LIVING 90's! Eres un auténtico noventero.";
+                if (score > questions.length / 2) {
+                    resultTitle.textContent = "¡HIGH SCORE!";
+                    resultMessage.textContent = "¡Eres 100% noventero/a, esta es tu fiesta! Tienes todo para brillar. ¡Nos vemos allí!";
                 } else {
-                    resultTitle.textContent = "¡OH, NO!";
-                    resultMessage.textContent = "😅 Aún no estás preparado… necesitas repasar los 90. ¡Inténtalo de nuevo!";
+                    resultTitle.textContent = "GAME OVER";
+                    resultMessage.textContent = "¡No te preocupes! Aún tienes tiempo para ponerte al día antes del gran viernes. ¡Ven a la fiesta y revive los mejores momentos!";
                 }
             }
 
             function toggleMute() {
                 isMuted = !isMuted;
                 bgMusic.muted = isMuted;
-
                 if (!isMuted && bgMusic.paused) {
-                    bgMusic.play().catch(e => console.log("La reproducción fue bloqueada hasta la interacción del usuario."));
+                    bgMusic.play().catch(e => console.log("La reproducción fue bloqueada."));
                 }
-                
                 iconUnmuted.classList.toggle('hidden', isMuted);
                 iconMuted.classList.toggle('hidden', !isMuted);
             }
 
-            // --- EVENT LISTENERS ---
             playButton.addEventListener('click', () => {
-                // La interacción del usuario permite reproducir audio
                 if(isMuted) toggleMute();
                 startGame();
             });
             restartButton.addEventListener('click', startGame);
             muteButton.addEventListener('click', toggleMute);
-
-            // Inicialmente, la música está en pausa y muteada
             bgMusic.muted = true;
         });
     </script>
 </body>
 </html>
-   
